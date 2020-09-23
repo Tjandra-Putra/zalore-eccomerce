@@ -1,2 +1,2 @@
 # zalore
-## A Eccomerce website developed using python-django {WIP)
+## An Eccomerce website developed using python-django {WIP)
