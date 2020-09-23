@@ -1,0 +1,38 @@
+{% extends "zalore/admin/admin_base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'zalore/admin_support.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <h1 class="title"> Enquiry</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in support_data %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.first_name }} {{ row.last_name }}</td>
+                    <td>{{ row.email }}</td>
+                    <td>{{ row.message }}</td>
+                    <td>{{ row.date_sent | date:"j/n/Y, h:i A" }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

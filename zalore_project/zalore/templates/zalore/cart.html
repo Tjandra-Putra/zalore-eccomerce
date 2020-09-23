@@ -1,0 +1,90 @@
+{% extends "zalore/base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="cart">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-8">
+                    <div class="alert alert-light alert-dismissible fade show" role="alert">
+                        <div class="banner-title">HAVE A PROMO CODE?</div>
+                        <div class="banner-description">If you have a promo code you will be able to apply it on the
+                            payment page during checkout.
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <h4 class="text-primary">Bag</h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <img src="{% static 'img/nike.jpg' %}" width="100" alt="" class="img-fluid">
+                            </td>
+                            <td>Sports Wear</td>
+                            <td>2</td>
+                            <td>S$89</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>
+
+                                <img src="{% static 'img/nike_2.jpg' %}" width="100" alt="" class="img-fluid">
+                            </td>
+                            <td>Sports Wear</td>
+                            <td>2</td>
+                            <td>S$89</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="summary">
+                        <h4 class="text-primary">Summary</h4>
+                        <div class="row">
+                            <div class="col-md-8">
+                                Subtotal
+                            </div>
+                            <div class="col-md-4">S$368</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                Estimated Delivery & Handling
+                            </div>
+                            <div class="col-md-4">S$0.00</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-8">
+                                Total
+                            </div>
+                            <div class="col-md-4">S$368</div>
+                        </div>
+                        <hr>
+
+                        <button class="btn btn-dark btn-block">CHECK OUT</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

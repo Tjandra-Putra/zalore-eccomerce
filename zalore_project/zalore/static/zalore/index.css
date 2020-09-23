@@ -1,0 +1,57 @@
+#intro-btn {
+    border-radius: 0 !important;
+}
+
+.intro-left-box {
+    background-color: #F44336 !important;
+    height: 30rem;
+    padding-top: 10rem !important;
+    padding-left: 5rem !important;
+}
+
+.intro-left-box h2 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.intro-left-box p {
+    color: white;
+}
+
+#arrow-img {
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+
+.intro-right-box img {
+    width: 34.7rem;
+    height: 30rem;
+}
+
+#banner {
+    background: #000;
+    color: white;
+    margin-top: 0.8rem;
+}
+
+.new-arrivals .title {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+#catch-phrase {
+    font-size: 1.5rem;
+    color: #586069 !important;
+}
+
+.carousel-inner .active{
+    border-bottom: none !important;
+}
+
+/** iPhone 6/7/8 **/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+    .intro-right-box img {
+        width: 100%;
+    }
+}

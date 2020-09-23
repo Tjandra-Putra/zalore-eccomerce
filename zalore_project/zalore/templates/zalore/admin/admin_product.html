@@ -1,0 +1,137 @@
+{% extends "zalore/admin/admin_base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/admin_product.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="title">Product</h1>
+            </div>
+            <div class="col-md-6" style="padding-top:12px">
+                <div class="float-right">
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Add Product</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Create Listing</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Name</label>
+                                                <input type="text" class="form-control" placeholder="" required
+                                                       name="product_name">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <label>Description</label>
+                                                <textarea type="text" class="form-control" placeholder="" required rows="3"
+                                                          name="product_description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <label>Price</label>
+                                                <input type="number" class="form-control" placeholder="" required
+                                                       name="product_price" step="0.01">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <label>Discount</label>
+                                                <input type="number" class="form-control" placeholder=""
+                                                       name="product_discount" step="0.01" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <label>Stock</label>
+                                                <input type="number" class="form-control" placeholder="" required
+                                                       name="product_stock">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <label>Reference</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" required
+                                                               id="inputGroupFile01" name="product_image">
+                                                        <label class="custom-file-label" for="inputGroupFile01">Choose
+                                                            file</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Confirm</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-3 mb-5">
+            <table class="table">
+                <thead style="border-bottom: 1px solid black !important;">
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    {#                    <th scope="col">Description</th>#}
+                    <th scope="col" style="width:100px;">Price</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in product_data %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>
+                            <img src="/media/{{ row.product_image }}" width="100" alt="" class="img-fluid">
+                            {#                            {{ row.product_image }}#}
+                        </td>
+                        <td>{{ row.product_name }}</td>
+                        {#                        <td>{{ row.product_description }}</td>#}
+                        <td>S$ {{ row.product_price }}</td>
+                        <td>{{ row.product_discount }} %</td>
+                        <td>{{ row.product_stock }}</td>
+                        <td>
+                            <form method="POST" action="{% url 'zalore-admin-product-delete' row.id %}">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-danger" type="submit"  onclick="return confirm('Are you sure?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

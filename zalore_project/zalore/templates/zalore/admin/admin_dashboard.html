@@ -1,0 +1,12 @@
+{% extends "zalore/admin/admin_base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'zalore/admin_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title">Dashboard</h1>
+    </div>
+{% endblock %}

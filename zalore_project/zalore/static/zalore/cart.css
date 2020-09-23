@@ -1,0 +1,30 @@
+.alert-light {
+    color: rgb(34, 34, 34) !important;
+    font-weight: 500;
+    /* background: rgb(247, 247, 247) !important; */
+    background: #f2f2f2 !important;
+}
+
+.banner-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.banner-description {
+    font-size: 12px;
+    padding-top: 0.3rem;
+}
+
+tr {
+    border-top: hidden;
+}
+
+
+.summary {
+    margin-top: 4.9rem;
+}
+
+.btn {
+    border-radius: 0 !important;
+}

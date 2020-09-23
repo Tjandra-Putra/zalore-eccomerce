@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+html {
+    scroll-behavior: smooth;
+}
+
+.font-poppin{
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+    border-bottom: 1px solid #f6f6f7;
+}
+
+.active{
+    font-weight: 700 !important;
+    border-bottom: 2px solid black !important;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.7rem !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin-left: 2rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    border-bottom: 2px solid #000;
+    font-weight: 700 !important;
+}
+
+.nav-btn {
+    border: 1px solid rgba(16, 116, 231, .5) !important;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+    margin-left: 1.8rem !important;
+    color: #1074e7 !important;
+    border-radius: 25px;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    border: none !important;
+    color: #f6f6f7 !important;
+}
+
+#nav-heart {
+    margin-right: 0rem !important;
+}
+
+#nav-bag {
+    margin-left: 1rem !important;
+}
+
+footer .col-md-3 p {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+footer .col-md-3 h1 {
+    font-weight: 600;
+}
+
+footer .col-md-3 h5 {
+    font-weight: 600;
+}
+
+#footer-copyright {
+    margin-top: 1.2rem;
+}
+

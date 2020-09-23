@@ -1,0 +1,51 @@
+{% extends "zalore/base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/product_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="detail_clothing mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col p-0">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="{% url 'zalore-home' %}" class="text-dark">Home</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{% url 'zalore-clothing' %}"
+                                                           class="text-dark">Clothing</a></li>
+                            <li class="breadcrumb-item font-weight-bold">{{ object.product_name }}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="/media/{{ object.product_image }}" class="img-fluid">
+                </div>
+                <div class="col-md-5 pt-3 px-0 mx-0">
+                    <h2 class="font-weight-bold">{{ object.product_name }}</h2>
+                    <h4>S${{ object.product_price }}
+                        {% if object.product_discount > 0 %}
+                            <small class="text-danger">({{ object.product_discount }} %
+                                OFF!)</small>
+                        {% endif %}
+                    </h4>
+                    <p class="text-muted">{{ object.product_stock }} piece available</p>
+
+                    <hr>
+
+                    <p class="">{{ object.product_description }}</p>
+                    {% if object.product_stock > 0 %}
+                        <button class="btn btn-dark btn-block py-3 btn-round mt-5" type="submit">Add to bag</button>
+                        {% else %}
+                        <button class="btn btn-dark btn-block py-3 btn-round mt-5" disabled>Out of Stock</button>
+                    {% endif %}
+                    <button class="btn btn-light border mt-3 btn-block py-3 btn-round" type="submit">Favourite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

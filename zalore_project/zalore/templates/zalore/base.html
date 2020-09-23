@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'zalore/base.css' %}">
+
+    {% if title %}
+        <title>ZALORE - {{ title }}</title>
+    {% else %}
+        <title>ZALORE Singapore</title>
+    {% endif %}
+
+    {% block extra_head %}{% endblock %}
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Fontawsome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- Sweet Alert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Tab Icon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.PNG' %}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'zalore-home' %}">Zalore.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link text-dark" href="{% url 'zalore-home' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link text-dark" href="{% url 'zalore-clothing' %}">Clothing</a>
+                <a class="nav-item nav-link text-dark" href="{% url 'zalore-support' %}">Help</a>
+                <a class="nav-link nav-btn" href="#">Get the app</a>
+            </div>
+            <div class="ml-auto d-none d-sm-block">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="nav-heart" href="#">
+                        <img src="{% static 'img/heart.png' %}" width="25" alt="heart" class="img-fluid"/>
+                    </a>
+                    <a class="nav-item nav-link" id="nav-bag" href="{% url 'zalore-cart' %}">
+                        <img src="{% static 'img/shopping-bag.png' %}" width="25" alt="bag" class="img-fluid"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% if messages %}
+        <div class="messages mt-3">
+            {% for msg in messages %}
+                <div class="alert alert-{{ msg.level_tag }} alert-dismissible fade show" role="alert">
+                    {{ msg.message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+<footer class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>Zalore.</h1>
+            </div>
+            <div class="col-md-3">
+                <h5>ABOUT ZALORE</h5>
+                <p>ZALORE Story</p>
+                <p>Contact us</p>
+                <p>Privacy Policy</p>
+                <p>Terms and Conditions</p>
+                <p>Intellectual Property Policy</p>
+                <p>Report Security Issues</p>
+                <p>International Site</p>
+            </div>
+            <div class="col-md-3">
+                <h5>CUSTOMER SUPPORT</h5>
+                <P>Shopping FAQ</P>
+                <p>Size and Fit Guides</p>
+                <p>Payment Method</p>
+                <p>Shipping Info</p>
+                <p>Returns</p>
+                <p>Satisfaction</p>
+                <p>Coupon Center</p>
+            </div>
+            <div class="col-md-3">
+                <h5>MORE ABOUT ZALORE</h5>
+                <p>Top Searches</p>
+                <p>Make Money</p>
+                <p>Join Our Community</p>
+                <p>Outfits</p>
+                <p>Student Discount</p>
+                <p>Cookies Policy</p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <p id="footer-copyright">© 2020 Zalore, Inc. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

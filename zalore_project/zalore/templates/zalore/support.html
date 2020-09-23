@@ -1,0 +1,62 @@
+{% extends "zalore/base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/support.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="support mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 style="font-weight:800">We're here to <span class="text-primary">help</span></h1>
+                    <p class="text-muted">Have an enquiry or some feedback for us?<br>Fill out the form below to contact
+                        our team.</p>
+
+                    <form method="POST" onsubmit="myFunction()">
+                        {% csrf_token %}
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label>First name</label>
+                                <input type="text" class="form-control" placeholder="" name="first_name" required>
+                            </div>
+                            <div class="col">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" placeholder="" required name="last_name">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <label>Email address</label>
+                                <input type="email" class="form-control" placeholder="" required name="email">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="5" required name="message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button class="btn btn-block btn-primary py-2" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'img/undraw_Popular_re_mlfe.png' %}" class="img-fluid mt-5" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            swal("Success!", "Your message has been sent.", "success");
+        }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "zalore/base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/clothing.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="clothing">
+        <div class="container">
+            <h4 class="my-3">At Least 50% Sustainable Material - Apparel</h4>
+
+            <div class="items mt-5">
+                <div class="row">
+                    {% for row in product_data %}
+                        <div class="col-md-4 mb-5">
+                            <a href="{% url 'zalore-clothing-detail' row.id %}" class="card mx-auto"
+                               style="width: 18rem;">
+                                <img src="/media/{{ row.product_image }}" class="card-img-top">
+                                <div class="card-body">
+                                    <p class="card-text m-0 p-0">
+                                        {% if row.product_discount > 0 %}
+                                            <h6 class="text-danger">{{ row.product_discount }}% OFF!</h6>
+                                        {% else %}
+                                            <h6 style="visibility: hidden">{{ row.product_discount }}% DISCOUNT!</h6>
+                                        {% endif %}
+                                    <h6>{{ row.product_name }}</h6>
+                                    <h6 class="text-muted">Stock - {{ row.product_stock }}</h6>
+                                    <h6 class="mt-3">S$ {{ row.product_price }}</h6>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

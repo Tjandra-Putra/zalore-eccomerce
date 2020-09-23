@@ -1,0 +1,4 @@
+.form-control, textarea{
+    background:#f3f3f4 !important;
+    border: none !important;
+}

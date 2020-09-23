@@ -1,0 +1,126 @@
+{% extends "zalore/base.html" %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'zalore/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 intro-left-box">
+                    <h2>Outlet Sale Now!</h2>
+                    <p>
+                        With an extra 30% off sale items! <br>
+                        Discount applied at cart. Exclusions apply. Sale ends <br>23 September 2020. Terms and
+                        conditions
+                    </p>
+
+                    <button class="btn btn-light" id="intro-btn">SHOP NOW
+                        <img src="{% static 'img/right-arrow.png' %}" width="20" alt="" class="img-fluid"
+                             id="arrow-img">
+                    </button>
+                </div>
+                <div class="col-md-6 intro-right-box d-none d-sm-block">
+                    <img src="{% static 'img/pexels-terje-sollie-298864.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="row" id="banner">
+                <div class="col-md-3 py-4 pl-3">
+                    <i class="fas fa-receipt fa-2x d-inline"></i>
+                    <h5 class="d-inline pl-3">Get Extra 15% OFF</h5>
+                </div>
+                <div class="col-md-3 py-4 pl-3">
+                    <i class="fas fa-graduation-cap fa-2x d-inline"></i>
+                    <h5 class="d-inline pl-3">Student Discount</h5>
+                </div>
+                <div class="col-md-3 py-4 pl-3">
+                    <i class="fas fa-signature fa-2x d-inline"></i>
+                    <h5 class="d-inline pl-3">Limited Edition</h5>
+                </div>
+                <div class="col-md-3 py-4 pl-3">
+                    <i class="far fa-gem fa-2x d-inline"></i>
+                    <h5 class="d-inline pl-3">First Purchase</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-arrivals my-5">
+        <div class="container">
+            <div class="text-center mb-2">
+                <div class="title">
+                    <span class="text-danger">NEW</span> ARRIVALS
+                </div>
+                <p id="catch-phrase">Dress with style & confidence.</p>
+            </div>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{% static 'img/pexels-godisable-jacob-965324.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{% static 'img/itam.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{% static 'img/lucas.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{% static 'img/hunter.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                            <img src="{% static 'img/gusta.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{% static 'img/dannielly.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{% static 'img/pexels-anastasiya-gepp-2065195.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{% static 'img/pexels-godisable-jacob-794063.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{% static 'img/pexels-daria-shevtsova-1071162.jpg' %}" class="d-block w-100"
+                                     alt="..."/>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
